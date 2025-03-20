@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - RTBMS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg w-96">
+        <h2 class="text-2xl font-bold mb-4 text-center">Signup</h2>
+        <form action="signup.php" method="POST" onsubmit="return validateForm()">
+            <input type="text" name="name" placeholder="Full Name" class="w-full p-2 mb-3 border rounded" required>
+            <input type="email" name="email" placeholder="Email" class="w-full p-2 mb-3 border rounded" required>
+            <input type="password" name="password" placeholder="Password" class="w-full p-2 mb-3 border rounded" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" class="w-full p-2 mb-3 border rounded" required>
+            <select name="blood_group" class="w-full p-2 mb-3 border rounded" required>
+                <option value="">Select Blood Group</option>
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+            </select>
+            <input type="text" name="phone" placeholder="Phone Number" class="w-full p-2 mb-3 border rounded" required>
+            <input type="text" name="city" placeholder="City" class="w-full p-2 mb-3 border rounded" required>
+            <button type="submit" class="w-full p-2 bg-blue-500 text-white rounded hover:bg-blue-600">Register</button>
+        </form>
+        <p class="text-center mt-3">Already have an account? <a href="login.html" class="text-blue-500">Login</a></p>
+    </div>
+
+    <script>
+        function validateForm() {
+            let password = document.getElementsByName("password")[0].value;
+            let confirm_password = document.getElementsByName("confirm_password")[0].value;
+            if (password !== confirm_password) {
+                alert("Passwords do not match!");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</body>
+</html>
